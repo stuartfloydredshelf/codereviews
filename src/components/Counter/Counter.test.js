@@ -7,7 +7,7 @@ describe("<Counter />", () => {
   test("it should mount", () => {
     render(<Counter />);
 
-    const counter = screen.getByTestId("Counter");
+    const counter = screen.getByText("bills.");
 
     expect(counter).toBeInTheDocument();
   });

@@ -3,16 +3,28 @@ on:
   push:
     branches: dev
 jobs:
-  conformity:
+  checkout:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install modules
         run: npm install
+  code-conformity:
+    runs-on: ubuntu-latest
+    steps:
       - name: ESLint code check
         run: npm run lint
       - name: Prettier code check
         uses: creyD/prettier_action@v4.0
         with:
           prettier_options: --check ./src/**/*.js
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build
+      - uses: npm run build
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps: npm run test
+      
