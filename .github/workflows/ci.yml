@@ -16,5 +16,5 @@ jobs:
       - name: Prettify code
         uses: creyD/prettier_action@v4.0
         with:
-          prettier_options: --check my-app/src
+          prettier_options: --check ./src/**/*.js
           only_changed: True
