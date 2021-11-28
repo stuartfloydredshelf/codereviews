@@ -26,5 +26,7 @@ jobs:
       - uses: npm run build
   unit-tests:
     runs-on: ubuntu-latest
-    steps: npm run test
+    steps: 
+      - name: Test
+        uses: npm run test
       
