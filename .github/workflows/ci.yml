@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ESLint code check
-        run: npm run lint
+        uses: npm run lint
       - name: Prettier code check
         uses: creyD/prettier_action@v4.0
         with:
