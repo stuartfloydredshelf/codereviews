@@ -9,12 +9,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install modules
-        uses: npm install
+        run: npm install
   code-conformity:
     runs-on: ubuntu-latest
     steps:
       - name: ESLint code check
-        uses: npm run lint
+        run: npm run lint
       - name: Prettier code check
         uses: creyD/prettier_action@v4.0
         with:
@@ -23,10 +23,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build
-      - uses: npm run build
+      - run: npm run build
   unit-tests:
     runs-on: ubuntu-latest
     steps: 
       - name: Test
-        uses: npm run test
+        run: npm run test
       
