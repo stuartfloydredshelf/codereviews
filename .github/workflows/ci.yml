@@ -1,6 +1,5 @@
 name: Code Conformity
 on:
-  pull_request:
   push:
     branches: dev
 jobs:
