@@ -3,8 +3,6 @@ on:
   push:
     branches: dev
 jobs:
-  strategy:
-    max-parallel: 1
   checkout:
     runs-on: ubuntu-latest
     steps:
@@ -13,6 +11,7 @@ jobs:
       - name: Install modules
         run: npm install
   code-conformity:
+    needs: checkout
     runs-on: ubuntu-latest
     steps:
       - name: ESLint code check
@@ -22,11 +21,13 @@ jobs:
         with:
           prettier_options: --check ./src/**/*.js
   build:
+    needs: code-conformity
     runs-on: ubuntu-latest
     steps:
       - name: Build
         run: npm run build
   unit-tests:
+    needs: build
     runs-on: ubuntu-latest
     steps: 
       - name: Test
