@@ -11,7 +11,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Install modules
-      run: yarn
+      run: npm install
     - name: ESLint
       run: npm run lint
     - name: Prettify code
