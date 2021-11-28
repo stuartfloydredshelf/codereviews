@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './Counter.module.css';
 
 const sentence = "I like to code because coding is fun. Ok, not really, but it pays the bills.";
 
