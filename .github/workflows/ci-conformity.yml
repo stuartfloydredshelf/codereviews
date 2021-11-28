@@ -1,6 +1,4 @@
-name: CI
-on: push
-name: CI on Push 
+name: Code Conformity
 on: 
   pull_request:
   push:
