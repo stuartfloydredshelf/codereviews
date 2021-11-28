@@ -1,6 +1,7 @@
-import React from 'react';
+import React from "react";
 
-const sentence = "I like to code because coding is fun. Ok, not really, but it pays the bills.";
+const sentence =
+  "I like to code because coding is fun. Ok, not really, but it pays the bills.";
 
 const Counter = () => {
   var rows = [];
@@ -9,7 +10,7 @@ const Counter = () => {
     rows.push(<li key={i}>{words[i]}</li>);
   }
   return <ul>{rows}</ul>;
-}
+};
 
 Counter.propTypes = {};
 

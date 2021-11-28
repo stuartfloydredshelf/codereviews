@@ -1,21 +1,20 @@
 name: Code Conformity
-on: 
+on:
   pull_request:
   push:
-    branches: 
-      dev
+    branches: dev
 jobs:
-  conformity: 
-    runs-on: ubuntu-latest    
+  conformity:
+    runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Install modules
-      run: npm install
-    - name: ESLint
-      run: npm run lint
-    - name: Prettify code
-      uses: creyD/prettier_action@v4.0
-      with:
-        prettier_options: --check src
-        only_changed: True
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install modules
+        run: npm install
+      - name: ESLint
+        run: npm run lint
+      - name: Prettify code
+        uses: creyD/prettier_action@v4.0
+        with:
+          prettier_options: --check my-app/src
+          only_changed: True
