@@ -11,10 +11,9 @@ jobs:
         uses: actions/checkout@v2
       - name: Install modules
         run: npm install
-      - name: ESLint
+      - name: ESLint code check
         run: npm run lint
-      - name: Prettify code
+      - name: Prettier code check
         uses: creyD/prettier_action@v4.0
         with:
           prettier_options: --check ./src/**/*.js
-          only_changed: True
