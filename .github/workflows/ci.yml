@@ -9,7 +9,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install modules
-        run: npm install
+        uses: npm install
   code-conformity:
     runs-on: ubuntu-latest
     steps:
