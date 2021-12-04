@@ -1,5 +1,3 @@
-import configureStore from "./store";
-
 const rootReducer = (state = {sentence: "Default"}, action) => {
     switch (action.type) {
         case "STIR_THE_TANKS":
