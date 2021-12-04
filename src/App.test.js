@@ -1,5 +1,4 @@
-
 test('renders learn react link', () => {
-  const noop = true
+  const noop = true;
   expect(noop).toBeTruthy();
 });
