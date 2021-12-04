@@ -1,35 +1,20 @@
-name: Code Conformity
-on:
-  push:
-    branches: dev
+name: Push checkout, install, lint, prettier, build, and unit test
+on: [ push ]
 jobs:
-  checkout:
+  pre-flight:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install modules
         run: npm install
-  code-conformity:
-    needs: checkout
-    runs-on: ubuntu-latest
-    steps:
       - name: ESLint code check
         run: npm run lint
       - name: Prettier code check
         uses: creyD/prettier_action@v4.0
         with:
           prettier_options: --check ./src/**/*.js
-  build:
-    needs: code-conformity
-    runs-on: ubuntu-latest
-    steps:
       - name: Build
         run: npm run build
-  unit-tests:
-    needs: build
-    runs-on: ubuntu-latest
-    steps: 
-      - name: Test
+      - name: Unit Test
         run: npm run test
-      
