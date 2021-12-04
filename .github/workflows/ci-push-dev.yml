@@ -1,5 +1,5 @@
 name: Push checkout, install, lint, prettier, build, and unit test
-on: [ push ]
+on: [push]
 jobs:
   pre-flight:
     runs-on: ubuntu-latest

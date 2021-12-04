@@ -1,5 +1,5 @@
-import "./App.css";
-import Counter from "./components/Counter/Counter";
+import './App.css';
+import Counter from './components/Counter/Counter';
 //import { createStore } from 'redux';
 
 function App() {
