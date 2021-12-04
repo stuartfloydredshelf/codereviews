@@ -13,7 +13,6 @@ function App() {
           rel="noopener noreferrer"
         ></a>
         <br />
-        <Counter />
       </header>
     </div>
   );
