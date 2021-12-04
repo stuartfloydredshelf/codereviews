@@ -4,7 +4,7 @@ on: pull_request
     - dev
     - acc
 jobs:
-  code_conformity:
+  code-conformity:
     if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
     steps:
       - name: Checkout
@@ -15,11 +15,15 @@ jobs:
         uses: creyD/prettier_action@v4.0
         with:
           prettier_options: --check ./src/**/*.js
-  build and deploy: 
+  build-and-deploy: 
     if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Specify node version
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
       - name: Install modules
         run: npm install
       - name: Build
