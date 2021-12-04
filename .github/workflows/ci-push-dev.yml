@@ -1,0 +1,20 @@
+name: Push checkout, install, lint, prettier, build, and unit test
+on: [push]
+jobs:
+  pre-flight:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install modules
+        run: npm install
+      - name: ESLint code check
+        run: npm run lint
+      - name: Prettier code check
+        uses: creyD/prettier_action@v4.0
+        with:
+          prettier_options: --check ./src/**/*.js
+      - name: Build
+        run: npm run build
+      - name: Unit Test
+        run: npm run test
