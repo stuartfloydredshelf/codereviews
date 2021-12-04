@@ -1,8 +1,22 @@
 name: Pull Request
 on: [pull_request]
+  branches:
+    - dev
+    - acc
 jobs:
-  merge_success:
-    if: github.event.pull_request.merged == 'true'
+  code conformity:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: ESLint code check
+        run: npm run lint
+      - name: Prettier code check
+        uses: creyD/prettier_action@v4.0
+        with:
+          prettier_options: --check ./src/**/*.js
+  build and deploy: 
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -20,3 +34,4 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
           SOURCE_DIR: 'build'
+
