@@ -1,7 +1,7 @@
 name: Push workflow
-on: [push]
+on: push
 jobs:
-  code conformity:
+  code-conformity:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
