@@ -22,8 +22,6 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ (needs.code-conformity.result=='success') }}
     needs: [code-conformity]
-    environment: 
-          name: dev
     steps:
       - name: Checkout
         uses: actions/checkout@v2
