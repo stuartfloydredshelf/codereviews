@@ -10,6 +10,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14'
+      - name: Install modules
+        run: npm install
       - name: ESLint code check
         run: npm run lint
       - name: Prettier code check
