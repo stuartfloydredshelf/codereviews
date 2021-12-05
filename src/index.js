@@ -1,22 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
 import './index.css';
 import App from './App';
-import Counter from './components/Counter/Counter';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-import configureStore from './store';
-import { PersistGate } from 'redux-persist/lib/integration/react';
+import rootReducer from './reducers';
+import { applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import { getQuotes } from './providers/Quote';
 
-const { store, persistor } = configureStore();
+const store = createStore(rootReducer, applyMiddleware(thunk));
+store.dispatch(getQuotes());
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <PersistGate persistor={persistor}>
-        <App />
-        <Counter />
-      </PersistGate>
+      <App />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root'),
