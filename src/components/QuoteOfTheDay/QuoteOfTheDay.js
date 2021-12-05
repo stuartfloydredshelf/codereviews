@@ -10,7 +10,7 @@ const QuoteOfTheDay = () => {
   let quotes = useSelector((state) => state.quotes);
   let quote = useSelector((state) => state.quote);
   if (quote == undefined) {
-    quote = { author: 'Stuart', description: 'This is fucked' };
+    quote = { author: 'Stuart', description: "Redshelf campus tools and partner are the best. Now, it's time for us to build great things." };
   }
   if (quotes == undefined) {
     quotes = [quote];
