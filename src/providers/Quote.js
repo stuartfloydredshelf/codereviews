@@ -9,7 +9,7 @@ export const emptyQuotes = [
 ];
 
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/',
+  uri: 'https://uijm5u5vnk.execute-api.us-east-1.amazonaws.com/dev',
   cache: new InMemoryCache(),
 });
 
@@ -26,6 +26,7 @@ export const getQuotes = () => async (dispatch) => {
     query: gql`
       query Get {
         quotes {
+          id
           description
           author
         }
