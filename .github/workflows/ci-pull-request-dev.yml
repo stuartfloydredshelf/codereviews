@@ -1,9 +1,6 @@
 name: PR workflow
 on: 
   pull_request:
-    branches:
-      - dev
-      - acc
 jobs:
   pr-dev-code-conformity:
     if: github.event.pull_request.merged == true
