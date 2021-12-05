@@ -25,6 +25,10 @@ jobs:
     environment: 
           name: dev
     steps:
+    runs-on: ubuntu-latest
+    if: ${{ (needs.push-code-conformity.result=='success') }}
+    needs: [push-code-conformity]
+    steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Specify node version
