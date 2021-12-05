@@ -10,6 +10,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14'
+      - name: Install modules
+        run: npm install
       - name: ESLint code check
         run: npm run lint
       - name: Prettier code check
@@ -22,6 +24,10 @@ jobs:
     if: ${{ (needs.pr-dev-code-conformity.result=='success') }}
     environment: 
           name: dev
+    steps:
+    runs-on: ubuntu-latest
+    if: ${{ (needs.push-code-conformity.result=='success') }}
+    needs: [push-code-conformity]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
