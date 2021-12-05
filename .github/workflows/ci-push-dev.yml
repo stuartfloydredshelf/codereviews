@@ -20,8 +20,8 @@ jobs:
           prettier_options: --check ./src/**/*.js
   push-build:
     runs-on: ubuntu-latest
-    if: ${{ (needs.code-conformity.result=='success') }}
-    needs: [code-conformity]
+    if: ${{ (needs.push-code-conformity.result=='success') }}
+    needs: [push-code-conformity]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
