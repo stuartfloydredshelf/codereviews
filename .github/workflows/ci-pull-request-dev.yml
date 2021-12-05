@@ -1,9 +1,7 @@
 name: PR workflow
-on: 
-  pull_request:
+on: pull_request
 jobs:
   pr-dev-code-conformity:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -17,9 +15,7 @@ jobs:
   pr-dev-build-and-deploy: 
     runs-on: ubuntu-latest
     needs: [pr-dev-code-conformity]
-    if: |
-      github.event.pull_request.merged == true && 
-      (needs.pr-dev-code-conformity.result=='success')
+    if: ${{ (needs.pr-dev-code-conformity.result=='success') }}
     environment: 
           name: dev
     steps:
