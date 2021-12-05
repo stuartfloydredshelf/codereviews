@@ -5,7 +5,7 @@ on:
       - dev
       - acc
 jobs:
-  code-conformity:
+  pr-dev-code-conformity:
     if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
@@ -17,7 +17,7 @@ jobs:
         uses: creyD/prettier_action@v4.0
         with:
           prettier_options: --check ./src/**/*.js
-  build-and-deploy: 
+  pr-dev-build-and-deploy: 
     runs-on: ubuntu-latest
     needs: [code-conformity]
     if: |
