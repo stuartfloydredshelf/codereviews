@@ -1,5 +1,6 @@
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 import { updateQuotes } from '../actions/updateQuotes';
+import { addedQuote } from '../actions/addedQuote';
 
 export const emptyQuotes = [
   {
@@ -45,19 +46,7 @@ export const getQuotes = () => async (dispatch) => {
   dispatch(updateQuotes(quotes));
 };
 
-export class QuoteProvider {
-  static async postQuote(quote) {
-    console.log('quote:' + JSON.stringify(quote));
-    return;
-  }
-
-  static async putQuote(quote) {
-    console.log('quote:' + JSON.stringify(quote));
-    return;
-  }
-
-  static async deleteQuote(quote) {
-    console.log('quote:' + JSON.stringify(quote));
-    return;
-  }
-}
+export const addQuote = (author, description) => async (dispatch) => {
+  const quote = {id: 300, author: author, description: description};
+  dispatch(addedQuote(quote));
+};
