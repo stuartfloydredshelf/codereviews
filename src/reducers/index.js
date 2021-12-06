@@ -1,5 +1,4 @@
-
-const rootReducer = (state = { }, action) => {
+const rootReducer = (state = {}, action) => {
   console.log('action.type:' + action.type);
   switch (action.type) {
     case 'UPDATE_QUOTES':
@@ -12,7 +11,7 @@ const rootReducer = (state = { }, action) => {
       return { ...state, showAll: action.showAll };
     case 'ADDED_QUOTE':
       console.log('new action.quotes:' + JSON.stringify(action.quote));
-      return { ...state, quotes: [...this.state.quotes, action.quote] };  
+      return { ...state, quotes: [...this.state.quotes, action.quote] };
     default:
       return state;
   }

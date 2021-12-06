@@ -47,6 +47,6 @@ export const getQuotes = () => async (dispatch) => {
 };
 
 export const addQuote = (author, description) => async (dispatch) => {
-  const quote = {id: 300, author: author, description: description};
+  const quote = { id: 300, author: author, description: description };
   dispatch(addedQuote(quote));
 };
