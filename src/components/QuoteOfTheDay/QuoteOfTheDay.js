@@ -40,7 +40,7 @@ const QuoteOfTheDay = () => {
       <br />
       <br />
       <Button
-        variant="contained"
+        variant="outlined"
         onClick={() => dispatch(updateQuote(getRandomQuote(quotes)))}
       >
         So good. Give me another.
